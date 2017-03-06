@@ -9,6 +9,7 @@ package sample;
         import java.util.ResourceBundle;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
+        import javafx.scene.control.Alert;
         import javafx.scene.control.Button;
         import javafx.scene.control.TextField;
 
@@ -49,6 +50,9 @@ public class ClientUI1Controller {
 
         //Socket socket = new Socket()
         Client client = new Client(ipAddress, Integer.parseInt(portNumber), studentId);
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.showAndWait();
 
     }
 
