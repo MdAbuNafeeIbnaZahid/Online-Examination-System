@@ -32,7 +32,7 @@
         <Label layoutX="36.0" layoutY="546.0" prefHeight="40.0" text="Students enrolled" />
         <Label layoutX="412.0" layoutY="295.0" text="Backup interval (min)" />
         <TextField fx:id="backupIntervalMin" layoutX="569.0" layoutY="307.0" prefWidth="144.0" />
-        <Button layoutX="359.0" layoutY="613.0" mnemonicParsing="false" text="Submit" />
+        <Button fx:id="submitButton" layoutX="359.0" layoutY="613.0" mnemonicParsing="false" onAction="#submitAction" text="Submit" />
         <TextArea id="applicationAllowedMin" fx:id="applicationAllowedList" layoutX="215.0" layoutY="394.0" prefHeight="95.0" prefWidth="138.0" wrapText="true" />
         <Label layoutX="56.0" layoutY="413.0" text="Applications allowed" />
       </children>

@@ -15,6 +15,7 @@ package sample;
 
 
 public class ClientUI1Controller {
+
     String ipAddress;
     String portNumber;
     String studentId;
@@ -40,6 +41,7 @@ public class ClientUI1Controller {
 
     @FXML
     void connectButtonAction(ActionEvent event) {
+
         ipAddress = ipAddressTextField.getText();
         portNumber = portNumberTextField.getText();
         studentId = studentIDTextField.getText();
@@ -49,10 +51,16 @@ public class ClientUI1Controller {
         System.out.println("studentId = " + studentId);
 
         //Socket socket = new Socket()
-        Client client = new Client(ipAddress, Integer.parseInt(portNumber), studentId);
+        try {
+            Client client = new Client(ipAddress, Integer.parseInt(portNumber), studentId);
+        }
+        catch ( Exception e )
+        {
+            System.out.println("Can't create new connection in client");
+        }
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.showAndWait();
+
+
 
     }
 

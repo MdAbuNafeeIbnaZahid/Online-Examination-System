@@ -25,6 +25,11 @@ public class ServerUI1Controller {
 
     File questionFile;
     File ansStoreLocation;
+    String applicationAllowedListStr;
+    int backupIntervalMinInt;
+    int examDurationMinInt;
+
+
 
 
 
@@ -100,8 +105,16 @@ public class ServerUI1Controller {
     }
 
     @FXML
+    private Button submitButton;
+
+    @FXML
+    void submitAction(ActionEvent event) {
+    }
+
+    @FXML
     void initialize() {
-        assert applicationAllowedList != null : "fx:id=\"applicationAllowedMin\" was not injected: check your FXML file 'ServerUI1.fxml'.";
+
+        assert applicationAllowedList != null : "fx:id=\"applicationAllowedList\" was not injected: check your FXML file 'ServerUI1.fxml'.";
         assert backupIntervalMin != null : "fx:id=\"backupIntervalMin\" was not injected: check your FXML file 'ServerUI1.fxml'.";
         assert chooseAnsStoreLocation != null : "fx:id=\"chooseAnsStoreLocation\" was not injected: check your FXML file 'ServerUI1.fxml'.";
         assert chooseQuestionButton != null : "fx:id=\"chooseQuestionButton\" was not injected: check your FXML file 'ServerUI1.fxml'.";
@@ -111,6 +124,7 @@ public class ServerUI1Controller {
         assert examStartMin != null : "fx:id=\"examStartMin\" was not injected: check your FXML file 'ServerUI1.fxml'.";
         assert ruleText != null : "fx:id=\"ruleText\" was not injected: check your FXML file 'ServerUI1.fxml'.";
         assert studentsEnrolledText != null : "fx:id=\"studentsEnrolledText\" was not injected: check your FXML file 'ServerUI1.fxml'.";
+        assert submitButton != null : "fx:id=\"submitButton\" was not injected: check your FXML file 'ServerUI1.fxml'.";
         assert warnigBeforeEndMin != null : "fx:id=\"warnigBeforeEndMin\" was not injected: check your FXML file 'ServerUI1.fxml'.";
 
 
