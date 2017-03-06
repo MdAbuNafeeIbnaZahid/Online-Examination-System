@@ -21,10 +21,24 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Scanner;
 
-public class ServerStarter {
+public class ServerStarter extends Application {
+    Stage stage;
+
+
     public static void main(String[] args) {
-        Server server = new Server();
+        launch(args);
+    }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
 
+        stage = primaryStage;
+        ServerUI1Controller.setServerStarter( this );
+
+        Parent root = FXMLLoader.load(getClass().getResource("ServerUI1.fxml"));
+
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.show();
     }
 }
