@@ -9,20 +9,27 @@
 <?import javafx.scene.layout.GridPane?>
 
 <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.ServerUI1Controller">
-    <children>
-        <AnchorPane prefHeight="643.0" prefWidth="747.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
-            <children>
-                <TextField layoutX="397.0" layoutY="82.0" prefWidth="200.0" />
-                <Label layoutX="254.0" layoutY="88.0" text="Exam name" />
-                <TextField layoutX="397.0" layoutY="137.0" prefWidth="200.0" />
-                <Label layoutX="254.0" layoutY="146.0" text="Label" />
-            </children>
-        </AnchorPane>
-    </children>
-    <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-    </rowConstraints>
+  <children>
+    <AnchorPane prefHeight="643.0" prefWidth="747.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+      <children>
+        <TextField layoutX="397.0" layoutY="82.0" prefWidth="200.0" />
+        <Label layoutX="254.0" layoutY="88.0" text="Exam name" />
+        <TextField layoutX="469.0" layoutY="137.0" prefWidth="128.0" />
+        <Label layoutX="62.0" layoutY="140.0" text="Exam start time" />
+        <TextField layoutX="237.0" layoutY="137.0" prefWidth="137.0" />
+        <Label layoutX="270.0" layoutY="173.0" text="Hour" />
+        <Label layoutX="515.0" layoutY="170.0" text="Minute" />
+        <Label layoutX="79.0" layoutY="248.0" text="Duration (minutes)" />
+        <TextField layoutX="218.0" layoutY="245.0" prefWidth="137.0" />
+        <TextField layoutX="218.0" layoutY="300.0" prefWidth="200.0" />
+        <Label layoutX="105.0" layoutY="311.0" text="Warnig time before ending" />
+      </children>
+    </AnchorPane>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+  </rowConstraints>
 </GridPane>
