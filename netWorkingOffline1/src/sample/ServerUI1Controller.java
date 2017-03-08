@@ -23,12 +23,15 @@ public class ServerUI1Controller {
         ServerUI1Controller.serverStarter = serverStarter;
     }
 
+    String examNameStr;
     File questionFile;
     File ansStoreLocation;
-    String applicationAllowedListStr;
-    int backupIntervalMinInt;
-    int examDurationMinInt;
-
+    String applicationAllowed;
+    double backupIntervalMinDob;
+    double examDurationMinDob;
+    double warningBefEndMinuteDob;
+    String ruleStr;
+    
 
 
 
@@ -109,6 +112,7 @@ public class ServerUI1Controller {
 
     @FXML
     void submitAction(ActionEvent event) {
+
     }
 
     @FXML
