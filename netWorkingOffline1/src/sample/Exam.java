@@ -1,12 +1,14 @@
 package sample;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by nafee on 3/6/17.
  */
-public class Exam {
+public class Exam implements Serializable{
+
     String name;
     int startHour;
     int startMin;

@@ -7,6 +7,8 @@ package sample;
         import java.util.ArrayList;
         import java.util.List;
         import java.util.ResourceBundle;
+        import java.util.StringTokenizer;
+
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.scene.control.Button;
@@ -25,14 +27,41 @@ public class ServerUI1Controller {
         ServerUI1Controller.serverStarter = serverStarter;
     }
 
+    public ArrayList<Integer> rangeInsert(ArrayList<Integer> arrayList, int s, int e)
+    {
+        int a, b, c, d;
+        for (a = s; a <= e; a++)
+        {
+            arrayList.add( a );
+        }
+        return  arrayList;
+    }
+
     public ArrayList<Integer> getStdListFromStr( String str )
     {
         ArrayList<Integer> ret = new ArrayList<Integer>();
         String strWithoutSpace = "";
         str = str.replaceAll(" ", "");
         //System.out.println( str );
-        int a, b, c, d, e, f, g;
-        for (a = 0; a < )
+        StringTokenizer st = new StringTokenizer(str, ",");
+        while (st.hasMoreTokens())
+        {
+            String part = st.nextToken();
+            int firStd, secStd;
+            if ( part.contains( "-" ) )
+            {
+                StringTokenizer stringTokenizer = new StringTokenizer(part, "-");
+                firStd = Integer.parseInt( stringTokenizer.nextToken() );
+                secStd = Integer.parseInt( stringTokenizer.nextToken() );
+            }
+            else
+            {
+                firStd = Integer.parseInt( part );
+                secStd = Integer.parseInt(part );
+            }
+            ret = rangeInsert(ret, firStd, secStd);
+        }
+
         return ret;
     }
 
@@ -147,7 +176,33 @@ public class ServerUI1Controller {
         backupIntervalMinDob = Double.parseDouble(backupIntervalMin.getText() );
         applicationAllowed = applicationAllowedList.getText();
         studentsEnrolledStr = studentsEnrolledText.getText().replaceAll(" ", "");
-        System.out.println( studentsEnrolledStr );
+        studentsEnrolledList = getStdListFromStr( studentsEnrolledStr );
+
+        Exam exam = new Exam();
+        exam.setName( examNameStr );
+        exam.setStartHour( examStartHourInt );
+        exam.setStartMin( examStartMinInt );
+        exam.setDurationMin((int) examDurationMinDob);
+        exam.setWarnigMinBefEnding( (int)warningBefEndMinuteDob );
+        exam.setRules( ruleStr );
+        exam.setBackupIntervalMin( (int)backupIntervalMinDob );
+        exam.setApplicationAllowed( applicationAllowed );
+        exam.setAnsStoreLocation( ansStoreLocation );
+        exam.setQuestionFile( questionFile );
+        exam.setListOfStudentsEnrolled( studentsEnrolledList );
+
+        serverStarter.examList.add( exam );
+        serverStarter.server = new Server();
+        serverStarter.server.setServerStarter( serverStarter );
+
+        try {
+            serverStarter.showNextScene();
+        }
+        catch (Exception e)
+        {
+            System.out.println("caught exception. server UI2 can't be displayed");
+        }
+
     }
 
     @FXML

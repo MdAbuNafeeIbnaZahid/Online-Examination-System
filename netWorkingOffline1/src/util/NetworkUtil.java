@@ -3,6 +3,8 @@ package util;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 
 public class NetworkUtil
@@ -10,6 +12,12 @@ public class NetworkUtil
     private Socket socket;
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
+
+    //By Nafee
+    public InetAddress getInetAddress()
+    {
+        return socket.getInetAddress();
+    }
 
     public NetworkUtil(String s, int port) {
         try {

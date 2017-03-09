@@ -19,9 +19,31 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.util.*;
 
+import static java.lang.System.in;
+
 public class ServerStarter extends Application {
+
     Stage stage;
     List<Exam> examList = new ArrayList<Exam>() ;
+    Server server;
+    List<StdIdIpAddrs> stdIdIpAddrssList = new ArrayList<StdIdIpAddrs>();
+
+    public boolean isStdIdOk( int stdId )
+    {
+        boolean ret = false;
+        for ( Exam exam : examList )
+        {
+            for ( Integer i : exam.getListOfStudentsEnrolled() )
+            {
+                if ( stdId == i )
+                {
+                    ret = true;
+                }
+            }
+        }
+        return ret;
+    }
+
 
 
     public static void main(String[] args) {
@@ -42,5 +64,17 @@ public class ServerStarter extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+    }
+
+
+    public void showNextScene() throws Exception
+    {
+        // fxml will be loaded here
+        Parent root = FXMLLoader.load( getClass().getResource("ServerUI2.fxml") );
+        ServerUI2Controller.setServerStarter(this);
+        //stage.setTitle("Client : " + clientName);
+        stage.setScene(new Scene(root, 400, 300));
+        stage.show();
+
     }
 }

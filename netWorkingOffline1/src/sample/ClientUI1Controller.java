@@ -16,6 +16,7 @@ package sample;
 
 public class ClientUI1Controller {
 
+    public static ClientStarter clientStarter;
     String ipAddress;
     String portNumber;
     String studentId;
@@ -41,7 +42,7 @@ public class ClientUI1Controller {
 
     @FXML
     void connectButtonAction(ActionEvent event) {
-
+        boolean isEntryGiven = false;
         ipAddress = ipAddressTextField.getText();
         portNumber = portNumberTextField.getText();
         studentId = studentIDTextField.getText();
@@ -52,14 +53,41 @@ public class ClientUI1Controller {
 
         //Socket socket = new Socket()
         try {
-            Client client = new Client(ipAddress, Integer.parseInt(portNumber), studentId);
+            Client client = new Client(ipAddress, Integer.parseInt(portNumber), Integer.parseInt(studentId));
+            client.setClientStarter( clientStarter );
+            client.sendStdIdToServer();
+            while ( true )
+            {
+                Object object = client.networkUtil.read();
+                if ( object != null )
+                {
+                    String entryMessageFromServer = (String)object;
+                    if ( entryMessageFromServer.equals( "EntryGreen" ) ) // entry green light
+                    {
+                        isEntryGiven = true;
+                    }
+                    break;
+                }
+            }
+            if ( isEntryGiven )
+            {
+                while (true)
+                {
+                    Object object = client.networkUtil.read();
+                    if ( object != null )
+                    {
+                        clientStarter.exam = (Exam)object;
+                        System.out.println(clientStarter.exam);
+                        break;
+                    }
+                }
+            }
+
         }
         catch ( Exception e )
         {
             System.out.println("Can't create new connection in client");
         }
-
-
 
 
     }
@@ -74,4 +102,7 @@ public class ClientUI1Controller {
 
     }
 
+    public static void setClientStarter(ClientStarter clientStarter) {
+        ClientUI1Controller.clientStarter = clientStarter;
+    }
 }
