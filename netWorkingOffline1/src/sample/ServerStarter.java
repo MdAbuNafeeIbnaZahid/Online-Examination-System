@@ -21,6 +21,7 @@ import java.util.*;
 
 public class ServerStarter extends Application {
     Stage stage;
+    List<Exam> examList = new ArrayList<Exam>() ;
 
 
     public static void main(String[] args) {

@@ -14,9 +14,9 @@
       <children>
         <TextField fx:id="examNameField" layoutX="137.0" layoutY="29.0" prefWidth="200.0" />
         <Label layoutX="40.0" layoutY="35.0" text="Exam name" />
-        <TextField fx:id="examStartMin" layoutX="392.0" layoutY="75.0" prefWidth="128.0" />
+        <TextField id="examStartMin" fx:id="examStartMinField" layoutX="392.0" layoutY="75.0" prefWidth="128.0" />
         <Label layoutX="36.0" layoutY="75.0" text="Exam start time" />
-        <TextField fx:id="examStartHour" layoutX="184.0" layoutY="75.0" prefWidth="137.0" />
+        <TextField id="examStartHour" fx:id="examStartHourField" layoutX="184.0" layoutY="75.0" prefWidth="137.0" />
         <Label layoutX="237.0" layoutY="107.0" prefHeight="22.0" text="Hour" />
         <Label layoutX="430.0" layoutY="110.0" text="Minute" />
         <Label layoutX="56.0" layoutY="144.0" text="Duration (minutes)" />
@@ -26,7 +26,7 @@
         <Label layoutX="253.0" layoutY="219.0" text="Minutes" />
         <TextArea fx:id="ruleText" layoutX="135.0" layoutY="291.0" prefHeight="64.0" prefWidth="170.0" wrapText="true" />
         <Label layoutX="56.0" layoutY="307.0" text="Rules" />
-        <Button fx:id="chooseQuestionButton" layoutX="503.0" layoutY="495.0" minHeight="16.0" mnemonicParsing="false" onAction="#chooseQuestionAction" prefHeight="21.0" text="Choose Question" />
+        <Button fx:id="chooseQuestionButton" layoutX="487.0" layoutY="457.0" minHeight="16.0" mnemonicParsing="false" onAction="#chooseQuestionAction" prefHeight="21.0" text="Choose Question" />
         <Button fx:id="chooseAnsStoreLocation" layoutX="475.0" layoutY="549.0" mnemonicParsing="false" onAction="#chooseAnsStoreLocationAction" text="Choose answer storage location" />
         <TextArea fx:id="studentsEnrolledText" layoutX="190.0" layoutY="511.0" prefHeight="71.0" prefWidth="200.0" wrapText="true" />
         <Label layoutX="36.0" layoutY="546.0" prefHeight="40.0" text="Students enrolled" />
@@ -35,6 +35,8 @@
         <Button fx:id="submitButton" layoutX="359.0" layoutY="613.0" mnemonicParsing="false" onAction="#submitAction" text="Submit" />
         <TextArea id="applicationAllowedMin" fx:id="applicationAllowedList" layoutX="215.0" layoutY="394.0" prefHeight="95.0" prefWidth="138.0" wrapText="true" />
         <Label layoutX="56.0" layoutY="413.0" text="Applications allowed" />
+        <Label id="questionLabel" fx:id="questionLocationLabel" layoutX="502.0" layoutY="424.0" prefHeight="21.0001220703125" text="Question Location" />
+        <Label fx:id="ansStoreLocationLabel" layoutX="487.0" layoutY="513.0" text="Answer store location" />
       </children>
     </AnchorPane>
   </children>
