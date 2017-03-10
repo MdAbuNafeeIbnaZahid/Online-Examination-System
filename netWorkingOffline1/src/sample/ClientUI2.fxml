@@ -12,7 +12,7 @@
   <children>
     <AnchorPane prefHeight="590.0" prefWidth="508.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
       <children>
-        <Label fx:id="infoFromServerLabel" layoutX="117.0" layoutY="68.0" prefHeight="423.0" prefWidth="333.0" text="Info from server" />
+        <TextArea fx:id="examInfo" layoutX="95.0" layoutY="97.0" prefHeight="336.0" prefWidth="334.0" wrapText="true" />
       </children>
     </AnchorPane>
   </children>

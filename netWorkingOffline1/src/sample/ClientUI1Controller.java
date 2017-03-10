@@ -73,6 +73,7 @@ public class ClientUI1Controller {
                     break;
                 }
             }
+            System.out.println("isEntryGiven = " + isEntryGiven);
             if ( isEntryGiven )
             {
                 while (true)
@@ -82,6 +83,7 @@ public class ClientUI1Controller {
                     {
                         clientStarter.exam = (Exam)object;
                         System.out.println(clientStarter.exam);
+                        clientStarter.showSecondClientUI();
                         break;
                     }
                 }

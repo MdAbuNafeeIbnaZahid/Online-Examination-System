@@ -109,5 +109,18 @@ public class Exam implements Serializable{
         this.ansStoreLocation = ansStoreLocation;
     }
 
-
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "name='" + name + '\'' +
+                ", startHour=" + startHour +
+                ", startMin=" + startMin +
+                ", durationMin=" + durationMin +
+                ", warnigMinBefEnding=" + warnigMinBefEnding +
+                ", rules='" + rules + '\'' +
+                ", backupIntervalMin=" + backupIntervalMin +
+                ", applicationAllowed='" + applicationAllowed + '\'' +
+                ", listOfStudentsEnrolled=" + listOfStudentsEnrolled +
+                '}';
+    }
 }

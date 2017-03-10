@@ -2,6 +2,7 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,11 +24,13 @@ public class ClientUI2Controller {
     private URL location;
 
     @FXML
-    private Label infoFromServerLabel;
+    private TextArea examInfo;
 
-    void setInfoFromServerLabel(String string)
+
+
+    public void setInitialInfo()
     {
-        infoFromServerLabel.setText(string);
+        examInfo.setText( clientStarter.exam.toString() );
     }
 
 
@@ -35,8 +38,9 @@ public class ClientUI2Controller {
     void initialize() {
 
         System.out.println("Loading client ui 2. control now to clientUI2controller");
+        //setInfoFromServerLabel( clientStarter.exam.toString() );
 
-        assert infoFromServerLabel != null : "fx:id=\"infoFromServerLabel\" was not injected: check your FXML file 'ClientUI2.fxml'.";
+        //assert infoFromServerLabel != null : "fx:id=\"infoFromServerLabel\" was not injected: check your FXML file 'ClientUI2.fxml'.";
 
 
     }
