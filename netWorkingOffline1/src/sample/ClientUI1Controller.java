@@ -88,6 +88,7 @@ public class ClientUI1Controller {
             }
             else
             {
+                System.out.println("going to write invalid prompt in client label");
                 loginStatusLabel.setText("Invalid ip or student id");
             }
 
@@ -95,6 +96,7 @@ public class ClientUI1Controller {
         catch ( Exception e )
         {
             System.out.println("Can't create new connection in client");
+            System.out.println("Exception e = " + e);
         }
 
 

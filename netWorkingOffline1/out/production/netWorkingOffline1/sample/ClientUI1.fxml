@@ -20,7 +20,7 @@
         <Label layoutX="141.0" layoutY="223.0" text="Student ID" />
         <Button fx:id="connectButton" layoutX="319.0" layoutY="305.0" mnemonicParsing="false" onAction="#connectButtonAction" text="Connect" />
         <Label fx:id="loginStatus" layoutX="224.0" layoutY="422.0" text="" />
-        <Label layoutX="224.0" layoutY="401.0" text="loginStatus" />
+        <Label fx:id="loginStatusLabel" layoutX="224.0" layoutY="401.0" text="loginStatus" />
       </children>
     </AnchorPane>
   </children>
