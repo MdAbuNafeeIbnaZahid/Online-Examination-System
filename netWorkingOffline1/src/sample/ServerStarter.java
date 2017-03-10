@@ -27,6 +27,20 @@ public class ServerStarter extends Application {
     List<Exam> examList = new ArrayList<Exam>() ;
     Server server;
     List<StdIdIpAddrs> stdIdIpAddrssList = new ArrayList<StdIdIpAddrs>();
+    List<Student> studentList = new ArrayList<Student>();
+
+    public boolean wasStdPreviouslyLoggedIn(int stdId)
+    {
+        boolean ret = false;
+        for ( Student student : studentList )
+        {
+            if ( student.stdId == stdId )
+            {
+                ret = true;
+            }
+        }
+        return ret;
+    }
 
     public boolean isStdIdOk( int stdId )
     {

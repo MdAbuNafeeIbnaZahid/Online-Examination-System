@@ -74,9 +74,11 @@ public class AcceptNewStudentThread implements Runnable {
         }
 
         networkUtil.write( messageToClient );
+
         if ( messageToClient.equals( "EntryGreen" ) )
         {
             serverStarter.stdIdIpAddrssList.add( new StdIdIpAddrs(stdId, inetAddress) );
+            serverStarter.studentList.add( new Student(stdId, networkUtil) );
             networkUtil.write( serverStarter.examList.get(0) );
         }
 

@@ -6,6 +6,7 @@ import util.NetworkUtil;
  * Created by nafee on 3/5/17.
  */
 public class Client {
+    Exam exam;
     public static ClientStarter clientStarter;
     String ipAddress;
     int portNumber;
