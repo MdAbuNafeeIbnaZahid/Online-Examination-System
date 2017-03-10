@@ -11,6 +11,7 @@ package sample;
         import javafx.fxml.FXML;
         import javafx.scene.control.Alert;
         import javafx.scene.control.Button;
+        import javafx.scene.control.Label;
         import javafx.scene.control.TextField;
 
 
@@ -26,6 +27,9 @@ public class ClientUI1Controller {
 
     @FXML
     private URL location;
+
+    @FXML
+    private Label loginStatusLabel;
 
     @FXML
     private Button connectButton;
@@ -81,6 +85,10 @@ public class ClientUI1Controller {
                         break;
                     }
                 }
+            }
+            else
+            {
+                loginStatusLabel.setText("Invalid ip or student id");
             }
 
         }

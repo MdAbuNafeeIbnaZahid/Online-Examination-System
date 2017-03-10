@@ -64,13 +64,21 @@ public class AcceptNewStudentThread implements Runnable {
                     messageToClient = "EntryGreen";
                     //break;
                 }
+                else
+                {
+                    messageToClient = "InvalidLoginInfo";
+                }
                 break;
             }
 
         }
 
         networkUtil.write( messageToClient );
-        serverStarter.stdIdIpAddrssList.add( new StdIdIpAddrs(stdId, inetAddress) );
-        networkUtil.write( serverStarter.examList.get(0) );
+        if ( messageToClient.equals( "EntryGreen" ) )
+        {
+            serverStarter.stdIdIpAddrssList.add( new StdIdIpAddrs(stdId, inetAddress) );
+            networkUtil.write( serverStarter.examList.get(0) );
+        }
+
     }
 }
