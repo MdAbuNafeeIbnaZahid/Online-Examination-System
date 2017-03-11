@@ -20,6 +20,7 @@ import java.net.ServerSocket;
 import java.util.*;
 
 import static java.lang.System.in;
+import static java.lang.System.setOut;
 
 public class ServerStarter extends Application {
 
@@ -74,8 +75,6 @@ public class ServerStarter extends Application {
 
 
     public static void main(String[] args) {
-        Calendar calendar = Calendar.getInstance();
-        Date date = new Date();
 
         launch(args);
     }

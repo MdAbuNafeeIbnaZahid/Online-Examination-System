@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.nio.channels.FileChannel;
+import java.util.Calendar;
 
 
 public class AcceptNewStudentThread implements Runnable {
@@ -19,6 +20,7 @@ public class AcceptNewStudentThread implements Runnable {
     ServerStarter serverStarter;
     Thread thr;
     NetworkUtil networkUtil;
+    Student student;
 
     public AcceptNewStudentThread(ServerStarter serverStarter, NetworkUtil networkUtil) {
         this.serverStarter = serverStarter;
@@ -150,9 +152,22 @@ public class AcceptNewStudentThread implements Runnable {
                 }
                 System.out.println("work of copy file ended");
 
-
-                serverStarter.studentList.add( new Student(stdId, networkUtil, examName, inetAddress, studentDestinationFolder, destinationFile) );
+                Calendar calendar = Calendar.getInstance();
+                System.out.println( calendar );
+                student = new Student(stdId, networkUtil, exam, inetAddress, studentDestinationFolder, destinationFile);
+                serverStarter.studentList.add( student );
             }
+
+            try {
+                networkUtil.fileSend( student.studentAnsStoreFile.getAbsolutePath() );
+            }
+            catch (Exception e)
+            {
+                System.out.println("Failed to send initial question file");
+                System.out.println( e );
+            }
+
+
         }
 
     }

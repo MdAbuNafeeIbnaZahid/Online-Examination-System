@@ -18,11 +18,15 @@
         <TextField fx:id="studentIDTextField" layoutX="260.0" layoutY="214.0" prefWidth="200.0" />
         <Label layoutX="141.0" layoutY="145.0" text="Port number" />
         <Label layoutX="141.0" layoutY="223.0" text="Student ID" />
-        <Button fx:id="connectButton" layoutX="322.0" layoutY="327.0" mnemonicParsing="false" onAction="#connectButtonAction" text="Connect" />
+        <Button fx:id="connectButton" layoutX="211.0" layoutY="485.0" mnemonicParsing="false" onAction="#connectButtonAction" text="Connect" />
         <Label fx:id="loginStatus" layoutX="224.0" layoutY="422.0" text="" />
-        <Label fx:id="loginStatusLabel" layoutX="224.0" layoutY="401.0" text="loginStatus" />
+        <Label fx:id="loginStatusLabel" layoutX="223.0" layoutY="529.0" text="loginStatus" />
         <Label layoutX="149.0" layoutY="282.0" text="Exam name" />
         <TextField fx:id="examNameTextField" layoutX="261.0" layoutY="273.0" prefWidth="200.0" />
+        <Button layoutX="193.0" layoutY="345.0" mnemonicParsing="false" onAction="#chooseQuestionFileLocationAction" prefHeight="22.0" prefWidth="212.0" text="Choose question file location" />
+        <Button layoutX="195.0" layoutY="420.0" mnemonicParsing="false" onAction="#chooseAnsFileLocationAction" prefWidth="241.0" text="Choose ans file location" />
+        <Label fx:id="questionFileLocationLabel" layoutX="201.0" layoutY="319.0" text="question file location" />
+        <Label fx:id="ansFileLocationLabel" layoutX="227.0" layoutY="397.0" text="ans file location" />
       </children>
     </AnchorPane>
   </children>

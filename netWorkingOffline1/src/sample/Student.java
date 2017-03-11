@@ -11,15 +11,16 @@ import java.net.InetAddress;
 public class Student {
     Integer stdId;
     NetworkUtil networkUtil;
-    String examName;
+    Exam exam;
     InetAddress inetAddress;
     File studentDestinationFolder;
     File studentAnsStoreFile;
 
-    public Student(Integer stdId, NetworkUtil networkUtil, String examName, InetAddress inetAddress, File studentDestinationFolder, File studentAnsStoreFile) {
+
+    public Student(Integer stdId, NetworkUtil networkUtil, Exam exam, InetAddress inetAddress, File studentDestinationFolder, File studentAnsStoreFile) {
         this.stdId = stdId;
         this.networkUtil = networkUtil;
-        this.examName = examName;
+        this.exam = exam;
         this.inetAddress = inetAddress;
         this.studentDestinationFolder = studentDestinationFolder;
         this.studentAnsStoreFile = studentAnsStoreFile;

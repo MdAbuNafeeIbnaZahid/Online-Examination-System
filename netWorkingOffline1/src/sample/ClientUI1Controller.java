@@ -4,6 +4,7 @@ package sample;
  * Created by nafee on 3/5/17.
  */
 
+        import java.io.File;
         import java.net.Socket;
         import java.net.URL;
         import java.util.ResourceBundle;
@@ -13,6 +14,7 @@ package sample;
         import javafx.scene.control.Button;
         import javafx.scene.control.Label;
         import javafx.scene.control.TextField;
+        import javafx.stage.DirectoryChooser;
 
 
 public class ClientUI1Controller {
@@ -47,6 +49,31 @@ public class ClientUI1Controller {
     @FXML
     private TextField studentIDTextField;
 
+    @FXML
+    private Label ansFileLocationLabel;
+
+    @FXML
+    private Label questionFileLocationLabel;
+
+    @FXML
+    void chooseAnsFileLocationAction(ActionEvent event) {
+    }
+
+    @FXML
+    void chooseQuestionFileLocationAction(ActionEvent event) {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File chosenDir = directoryChooser.showDialog(clientStarter.stage);
+        if (chosenDir == null ) {
+            System.out.println("Chosen dir is null");
+        }
+        else
+        {
+            //ansStoreLocation = chosenDir;
+            questionFileLocationLabel.setText( chosenDir.getAbsolutePath() );
+            //System.out.println(" Chosen dir absolute path =  " + chosenDir);
+        }
+    }
+
 
     @FXML
     void connectButtonAction(ActionEvent event) {
@@ -55,6 +82,8 @@ public class ClientUI1Controller {
         portNumber = portNumberTextField.getText();
         studentId = studentIDTextField.getText();
         examNameStr = examNameTextField.getText();
+        String questionFolderLocationStr = questionFileLocationLabel.getText();
+
 
         System.out.println("ipAddress = " + ipAddress);
         System.out.println("portNumber = " + portNumber);
@@ -78,23 +107,26 @@ public class ClientUI1Controller {
                         isEntryGiven = true;
                     }
                     break;
-                }
+                }clientStarter.exam = (Exam)object;
+                    System.out.println(clientStarter.exam);
+
+
             }
             System.out.println("isEntryGiven = " + isEntryGiven);
             if ( isEntryGiven )
             {
-                while (true)
-                {
-                    Object object = client.networkUtil.read();
-                    if ( object != null )
-                    {
-                        clientStarter.exam = (Exam)object;
-                        System.out.println(clientStarter.exam);
-                        clientStarter.showSecondClientUI();
-                        break;
-                    }
-                }
+
+                Object object = client.networkUtil.read();
+
+                clientStarter.exam = (Exam)object;
+                System.out.println(clientStarter.exam);
+
+                client.networkUtil.fileReceive( questionFolderLocationStr + "/question.doc" );
+
+                clientStarter.showSecondClientUI();
+
             }
+
             else
             {
                 System.out.println("going to write invalid prompt in client label");

@@ -58,7 +58,7 @@ public class NetworkUtil
         int size;
         size=(Integer)this.read();
         int totalBlock=(size/1024)+1;
-        filePath=filePath + "/answerFile.doc";
+
 
         FileOutputStream fout=new FileOutputStream(filePath);
 
