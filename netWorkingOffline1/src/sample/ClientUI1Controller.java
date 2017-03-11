@@ -66,6 +66,7 @@ public class ClientUI1Controller {
             client.setClientStarter( clientStarter );
             client.sendStdIdToServer();
             client.sendExamNameToServer();
+            System.out.println("sent examName to server");
             while ( true )
             {
                 Object object = client.networkUtil.read();

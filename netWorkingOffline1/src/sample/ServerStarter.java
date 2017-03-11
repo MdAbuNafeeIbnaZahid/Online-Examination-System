@@ -29,6 +29,19 @@ public class ServerStarter extends Application {
     List<StdIdIpAddrs> stdIdIpAddrssList = new ArrayList<StdIdIpAddrs>();
     List<Student> studentList = new ArrayList<Student>();
 
+    Exam getExamByName(String examName)
+    {
+        Exam ret = null;
+        for ( Exam exam : examList )
+        {
+            if ( exam.name.equals( examName ) )
+            {
+                ret = exam;
+            }
+        }
+        return ret;
+    }
+
     public boolean wasStdPreviouslyLoggedIn(int stdId)
     {
         boolean ret = false;

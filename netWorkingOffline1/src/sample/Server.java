@@ -13,6 +13,7 @@ public class Server implements Runnable {
     ServerStarter serverStarter;
     private ServerSocket servSock;
     Thread thr;
+    static int portNumber = 5555;
 
     public void setServerStarter(ServerStarter serverStarter) {
         this.serverStarter = serverStarter;
@@ -27,7 +28,7 @@ public class Server implements Runnable {
     {
         try
         {
-            servSock = new ServerSocket(5555);
+            servSock = new ServerSocket(portNumber++);
             System.out.println("Created new serSock");
             while (true)
             {
