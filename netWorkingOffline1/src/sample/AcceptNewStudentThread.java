@@ -120,17 +120,28 @@ public class AcceptNewStudentThread implements Runnable {
             if ( ( !serverStarter.wasStdPreviouslyLoggedIn( stdId ) ) )
             {
                 System.out.println( "student was not previously logged in" );
-                serverStarter.studentList.add( new Student(stdId, networkUtil, examName, inetAddress) );
+
                 // I will create a new file for keeping students answer
                 Exam exam = serverStarter.getExamByName( examName );
                 System.out.println( "Got exam by name" );
                 File sourceFile = exam.getQuestionFile();
-                File destinationFolder = exam.getAnsStoreLocation();
-                File destinationFile = new File( destinationFolder.getAbsolutePath() +  "/ansFile.doc" );
+                File examDestinationFolder = exam.getAnsStoreLocation();
+                File studentDestinationFolder = new File( examDestinationFolder.getAbsolutePath() + "/" + stdId );
+                if (studentDestinationFolder.mkdir() )
+                {
+                    System.out.println("Successfully created directory named after student");
+                }
+                else
+                {
+                    System.out.println("Failed to created directory named after student");
+                }
+
+                File destinationFile = new File( studentDestinationFolder.getAbsolutePath() +  "/ansFile.doc" );
                 System.out.println("Created a new destination file");
 
                 try {
                     copyFile(sourceFile, destinationFile);
+                    System.out.println("Successfully copied file");
                 }
                 catch ( Exception e )
                 {
@@ -139,6 +150,8 @@ public class AcceptNewStudentThread implements Runnable {
                 }
                 System.out.println("work of copy file ended");
 
+
+                serverStarter.studentList.add( new Student(stdId, networkUtil, examName, inetAddress, studentDestinationFolder, destinationFile) );
             }
         }
 
