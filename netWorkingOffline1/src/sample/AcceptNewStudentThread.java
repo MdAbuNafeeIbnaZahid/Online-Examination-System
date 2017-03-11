@@ -152,9 +152,9 @@ public class AcceptNewStudentThread implements Runnable {
                 }
                 System.out.println("work of copy file ended");
 
-                Calendar calendar = Calendar.getInstance();
-                System.out.println( calendar );
-                student = new Student(stdId, networkUtil, exam, inetAddress, studentDestinationFolder, destinationFile);
+                Calendar currentTimeCalendar = Calendar.getInstance();
+
+                student = new Student(stdId, networkUtil, exam, inetAddress, studentDestinationFolder, destinationFile, currentTimeCalendar);
                 serverStarter.studentList.add( student );
             }
 
