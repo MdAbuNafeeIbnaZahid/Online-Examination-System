@@ -18,11 +18,12 @@ public class Client {
         Client.clientStarter = clientStarter;
     }
 
-    Client(String ipAddress, int portNumber, Integer studentId)
+    Client(String ipAddress, int portNumber, Integer studentId, String examName)
     {
         this.ipAddress = ipAddress;
         this.portNumber = portNumber;
         this.studentId = studentId;
+        this.examName = examName;
         networkUtil = new NetworkUtil(ipAddress, portNumber);
     }
 

@@ -129,6 +129,13 @@ public class ServerUI1Controller {
     @FXML
     private Label ansStoreLocationLabel;
 
+    @FXML
+    private Button correctionSendButton;
+
+    @FXML
+    private TextArea correctionTextArea;
+
+
 
     @FXML
     void chooseAnsStoreLocationAction(ActionEvent event) {
@@ -195,6 +202,7 @@ public class ServerUI1Controller {
         serverStarter.server = new Server();
         serverStarter.server.setServerStarter( serverStarter );
 
+        /*
         try {
             serverStarter.showNextScene();
         }
@@ -202,8 +210,14 @@ public class ServerUI1Controller {
         {
             System.out.println("caught exception. server UI2 can't be displayed");
         }
+        */
 
     }
+
+    @FXML
+    void correctionSendAction(ActionEvent event) {
+    }
+
 
     @FXML
     void initialize() {

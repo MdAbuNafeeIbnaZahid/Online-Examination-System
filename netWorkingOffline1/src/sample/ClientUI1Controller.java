@@ -62,7 +62,7 @@ public class ClientUI1Controller {
 
         //Socket socket = new Socket()
         try {
-            Client client = new Client(ipAddress, Integer.parseInt(portNumber), Integer.parseInt(studentId));
+            Client client = new Client(ipAddress, Integer.parseInt(portNumber), Integer.parseInt(studentId), examNameStr);
             client.setClientStarter( clientStarter );
             client.sendStdIdToServer();
             client.sendExamNameToServer();
