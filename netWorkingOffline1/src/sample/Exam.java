@@ -12,10 +12,10 @@ public class Exam implements Serializable{
     String name;
     int startHour;
     int startMin;
-    int durationMin;
+    double durationMin;
     int warnigMinBefEnding;
     String rules;
-    int backupIntervalMin;
+    double backupIntervalMin;
     String applicationAllowed;
     List<Integer> listOfStudentsEnrolled;
     File questionFile;
@@ -45,11 +45,11 @@ public class Exam implements Serializable{
         this.startMin = startMin;
     }
 
-    public int getDurationMin() {
+    public double getDurationMin() {
         return durationMin;
     }
 
-    public void setDurationMin(int durationMin) {
+    public void setDurationMin(double durationMin) {
         this.durationMin = durationMin;
     }
 
@@ -69,11 +69,11 @@ public class Exam implements Serializable{
         this.rules = rules;
     }
 
-    public int getBackupIntervalMin() {
+    public double getBackupIntervalMin() {
         return backupIntervalMin;
     }
 
-    public void setBackupIntervalMin(int backupIntervalMin) {
+    public void setBackupIntervalMin(double backupIntervalMin) {
         this.backupIntervalMin = backupIntervalMin;
     }
 

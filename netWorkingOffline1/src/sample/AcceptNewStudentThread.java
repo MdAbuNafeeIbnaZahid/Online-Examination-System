@@ -163,10 +163,11 @@ public class AcceptNewStudentThread implements Runnable {
             }
             catch (Exception e)
             {
-                System.out.println("Failed to send initial question file");
+                System.out.println("Failed to send initial question or ans file");
                 System.out.println( e );
             }
 
+            SendInstructionToClientThread sendInstructionToClientThread = new SendInstructionToClientThread(serverStarter, student);
 
         }
 

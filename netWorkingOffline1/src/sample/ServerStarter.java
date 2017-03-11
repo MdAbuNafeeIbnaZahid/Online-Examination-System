@@ -76,6 +76,17 @@ public class ServerStarter extends Application {
 
     public static void main(String[] args) {
 
+        /*
+        Calendar calendar1 = Calendar.getInstance();
+        for ( int i = 1; i < 10000; i++ )
+        {
+
+        }
+        Calendar calendar2 = Calendar.getInstance();
+
+        System.out.println( calendar1.compareTo( calendar2 ) );
+        */
+
         launch(args);
     }
 
