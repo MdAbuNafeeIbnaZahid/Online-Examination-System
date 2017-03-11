@@ -12,6 +12,7 @@ public class Client {
     int portNumber;
     Integer studentId;
     NetworkUtil networkUtil;
+    String examName;
 
     public static void setClientStarter(ClientStarter clientStarter) {
         Client.clientStarter = clientStarter;
@@ -30,5 +31,12 @@ public class Client {
         System.out.println( "from client " );
         networkUtil.write( studentId );
         System.out.println( "written studentId = " + studentId + "to server" );
+    }
+
+    void sendExamNameToServer()
+    {
+        System.out.println( "from client " );
+        networkUtil.write( examName );
+        System.out.println( "written examName = " + examName + "to server" );
     }
 }

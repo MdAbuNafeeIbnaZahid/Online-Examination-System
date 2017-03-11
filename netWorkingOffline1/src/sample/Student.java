@@ -8,9 +8,12 @@ import util.NetworkUtil;
 public class Student {
     Integer stdId;
     NetworkUtil networkUtil;
+    String examName;
 
     public Student(Integer stdId, NetworkUtil networkUtil) {
         this.stdId = stdId;
         this.networkUtil = networkUtil;
     }
+
+
 }

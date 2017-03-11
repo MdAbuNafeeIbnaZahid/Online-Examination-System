@@ -21,6 +21,7 @@ public class ClientUI1Controller {
     String ipAddress;
     String portNumber;
     String studentId;
+    String examNameStr;
 
     @FXML
     private ResourceBundle resources;
@@ -33,6 +34,9 @@ public class ClientUI1Controller {
 
     @FXML
     private Button connectButton;
+
+    @FXML
+    private TextField examNameTextField;
 
     @FXML
     private TextField ipAddressTextField;
@@ -50,6 +54,7 @@ public class ClientUI1Controller {
         ipAddress = ipAddressTextField.getText();
         portNumber = portNumberTextField.getText();
         studentId = studentIDTextField.getText();
+        examNameStr = examNameTextField.getText();
 
         System.out.println("ipAddress = " + ipAddress);
         System.out.println("portNumber = " + portNumber);
@@ -60,6 +65,7 @@ public class ClientUI1Controller {
             Client client = new Client(ipAddress, Integer.parseInt(portNumber), Integer.parseInt(studentId));
             client.setClientStarter( clientStarter );
             client.sendStdIdToServer();
+            client.sendExamNameToServer();
             while ( true )
             {
                 Object object = client.networkUtil.read();

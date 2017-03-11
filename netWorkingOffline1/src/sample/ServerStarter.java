@@ -42,14 +42,14 @@ public class ServerStarter extends Application {
         return ret;
     }
 
-    public boolean isStdIdOk( int stdId )
+    public boolean isStdIdOk( String examName,  int stdId )
     {
         boolean ret = false;
         for ( Exam exam : examList )
         {
             for ( Integer i : exam.getListOfStudentsEnrolled() )
             {
-                if ( stdId == i )
+                if ( exam.getName().equals( examName ) &&  stdId == i )
                 {
                     ret = true;
                 }

@@ -50,6 +50,7 @@ public class AcceptNewStudentThread implements Runnable {
         InetAddress inetAddress = networkUtil.getInetAddress();
         System.out.println( "inetAddress = " + inetAddress );
         Integer stdId = null;
+        String examName = null;
         String messageToClient = "";
         while (true)
         {
@@ -58,8 +59,10 @@ public class AcceptNewStudentThread implements Runnable {
             if ( object != null )
             {
                 stdId = (Integer) object;
+                object = networkUtil.read();
+                object = (String) object;
                 System.out.println( "server received stdId = " + stdId );
-                if ( serverStarter.isStdIdOk( stdId ) )
+                if ( serverStarter.isStdIdOk( examName,  stdId ) )
                 {
                     messageToClient = "EntryGreen";
                     //break;

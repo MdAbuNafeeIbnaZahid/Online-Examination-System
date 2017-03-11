@@ -10,7 +10,7 @@
 
 <GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.ServerUI1Controller">
   <children>
-    <AnchorPane prefHeight="687.0" prefWidth="783.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <AnchorPane prefHeight="819.0" prefWidth="971.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
       <children>
         <TextField fx:id="examNameField" layoutX="137.0" layoutY="29.0" prefWidth="200.0" />
         <Label layoutX="40.0" layoutY="35.0" text="Exam name" />
@@ -26,17 +26,17 @@
         <Label layoutX="253.0" layoutY="219.0" text="Minutes" />
         <TextArea fx:id="ruleText" layoutX="135.0" layoutY="291.0" prefHeight="64.0" prefWidth="170.0" wrapText="true" />
         <Label layoutX="56.0" layoutY="307.0" text="Rules" />
-        <Button fx:id="chooseQuestionButton" layoutX="487.0" layoutY="457.0" minHeight="16.0" mnemonicParsing="false" onAction="#chooseQuestionAction" prefHeight="21.0" text="Choose Question" />
-        <Button fx:id="chooseAnsStoreLocation" layoutX="475.0" layoutY="549.0" mnemonicParsing="false" onAction="#chooseAnsStoreLocationAction" text="Choose answer storage location" />
+        <Button fx:id="chooseQuestionButton" layoutX="510.0" layoutY="392.0" minHeight="16.0" mnemonicParsing="false" onAction="#chooseQuestionAction" prefHeight="21.0" text="Choose Question" />
+        <Button fx:id="chooseAnsStoreLocation" layoutX="461.0" layoutY="489.0" mnemonicParsing="false" onAction="#chooseAnsStoreLocationAction" text="Choose answer storage location" />
         <TextArea fx:id="studentsEnrolledText" layoutX="190.0" layoutY="511.0" prefHeight="71.0" prefWidth="200.0" wrapText="true" />
         <Label layoutX="36.0" layoutY="546.0" prefHeight="40.0" text="Students enrolled" />
-        <Label layoutX="412.0" layoutY="295.0" text="Backup interval (min)" />
-        <TextField fx:id="backupIntervalMin" layoutX="569.0" layoutY="307.0" prefWidth="144.0" />
-        <Button fx:id="submitButton" layoutX="359.0" layoutY="613.0" mnemonicParsing="false" onAction="#submitAction" text="Submit" />
+        <Label layoutX="461.0" layoutY="169.0" text="Backup interval (min)" />
+        <TextField fx:id="backupIntervalMin" layoutX="458.0" layoutY="201.0" prefWidth="144.0" />
+        <Button fx:id="submitButton" layoutX="359.0" layoutY="613.0" mnemonicParsing="false" onAction="#submitAction" text="Create new exam" />
         <TextArea id="applicationAllowedMin" fx:id="applicationAllowedList" layoutX="215.0" layoutY="394.0" prefHeight="95.0" prefWidth="138.0" wrapText="true" />
         <Label layoutX="56.0" layoutY="413.0" text="Applications allowed" />
-        <Label id="questionLabel" fx:id="questionLocationLabel" layoutX="502.0" layoutY="424.0" prefHeight="21.0001220703125" text="Question Location" />
-        <Label fx:id="ansStoreLocationLabel" layoutX="487.0" layoutY="513.0" text="Answer store location" />
+        <Label id="questionLabel" fx:id="questionLocationLabel" layoutX="510.0" layoutY="355.0" prefHeight="21.0001220703125" text="Question Location" />
+        <Label fx:id="ansStoreLocationLabel" layoutX="500.0" layoutY="457.0" text="Answer store location" />
       </children>
     </AnchorPane>
   </children>

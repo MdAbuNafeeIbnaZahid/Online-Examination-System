@@ -11,6 +11,12 @@ public class NetworkUtil
     private ObjectOutputStream oos;
     private ObjectInputStream ois;
 
+    // By Nafee
+    public boolean isConnected()
+    {
+        return socket.isConnected();
+    }
+
     //By Nafee
     public InetAddress getInetAddress()
     {

@@ -18,9 +18,11 @@
         <TextField fx:id="studentIDTextField" layoutX="260.0" layoutY="214.0" prefWidth="200.0" />
         <Label layoutX="141.0" layoutY="145.0" text="Port number" />
         <Label layoutX="141.0" layoutY="223.0" text="Student ID" />
-        <Button fx:id="connectButton" layoutX="319.0" layoutY="305.0" mnemonicParsing="false" onAction="#connectButtonAction" text="Connect" />
+        <Button fx:id="connectButton" layoutX="322.0" layoutY="327.0" mnemonicParsing="false" onAction="#connectButtonAction" text="Connect" />
         <Label fx:id="loginStatus" layoutX="224.0" layoutY="422.0" text="" />
         <Label fx:id="loginStatusLabel" layoutX="224.0" layoutY="401.0" text="loginStatus" />
+        <Label layoutX="149.0" layoutY="282.0" text="Exam name" />
+        <TextField fx:id="examNameTextField" layoutX="261.0" layoutY="273.0" prefWidth="200.0" />
       </children>
     </AnchorPane>
   </children>
