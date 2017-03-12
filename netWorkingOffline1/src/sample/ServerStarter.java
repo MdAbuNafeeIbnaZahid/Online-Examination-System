@@ -30,6 +30,19 @@ public class ServerStarter extends Application {
     List<StdIdIpAddrs> stdIdIpAddrssList = new ArrayList<StdIdIpAddrs>();
     List<Student> studentList = new ArrayList<Student>();
 
+    Student getStudentByStdId(Integer stdId)
+    {
+        Student ret = null;
+        for ( Student student : studentList )
+        {
+            if ( student.getStdId() == stdId )
+            {
+                ret = student;
+            }
+        }
+        return  ret;
+    }
+
     Exam getExamByName(String examName)
     {
         Exam ret = null;

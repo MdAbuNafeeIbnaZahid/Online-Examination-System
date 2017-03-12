@@ -40,14 +40,37 @@ public class SendInstructionToClientThread implements Runnable {
         {
             Calendar currentCalendar = Calendar.getInstance();
 
+            /*
+            It is not working
+            if ( !student.networkUtil.isConnected()  )
+            {
+                System.out.println( "Client " + student.getStdId() + "connection dead " );
+                break;
+            }
+            */
 
             long MilliSecPassedAfterExamStart = diffInMilliSec( currentCalendar, studentStartCalendar );
             System.out.println( "MilliSecPassedAfterExamStart = " + MilliSecPassedAfterExamStart );
             if ( MilliSecPassedAfterExamStart > examDurationMilSec )
             {
-                student.networkUtil.write( "EXAM_END" );
-                System.out.println( " instructed server to end exam " );
+                try {
+                    student.networkUtil.write( "EXAM_END" );
+                }
+                catch (Exception e){
+                    System.out.println("Failed to write to client........ connection lost");
+                    break;
+                }
+
+                System.out.println( " instructed client to end exam " );
                 //receive a last copy from student
+                try {
+                    student.networkUtil.fileReceive( student.studentAnsStoreFile.getAbsolutePath() );
+                    lastBackupCalendar = Calendar.getInstance();
+                }
+                catch (Exception e)
+                {
+                    System.out.println( "In server failed to receive last backup" );
+                }
                 // send ans to student
                 break;
             }
@@ -56,7 +79,14 @@ public class SendInstructionToClientThread implements Runnable {
             System.out.println("MilliSecPassedAfterLastBackup = " + MilliSecPassedAfterLastBackup);
             if ( MilliSecPassedAfterLastBackup > examBackupIntervalMilSec )
             {
-                student.networkUtil.write( "SEND_ANS" );
+                try {
+                    student.networkUtil.write( "SEND_ANS" );
+                }
+                catch (Exception e){
+                    System.out.println("Failed to write to client........ connection lost");
+                    break;
+                }
+
                 System.out.println("instructed server to send ans");
                 try {
                     student.networkUtil.fileReceive( student.studentAnsStoreFile.getAbsolutePath() );

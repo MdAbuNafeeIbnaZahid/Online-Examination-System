@@ -13,7 +13,7 @@ public class Exam implements Serializable{
     int startHour;
     int startMin;
     double durationMin;
-    int warnigMinBefEnding;
+    double warnigMinBefEnding;
     String rules;
     double backupIntervalMin;
     String applicationAllowed;
@@ -53,11 +53,11 @@ public class Exam implements Serializable{
         this.durationMin = durationMin;
     }
 
-    public int getWarnigMinBefEnding() {
+    public double getWarnigMinBefEnding() {
         return warnigMinBefEnding;
     }
 
-    public void setWarnigMinBefEnding(int warnigMinBefEnding) {
+    public void setWarnigMinBefEnding(double warnigMinBefEnding) {
         this.warnigMinBefEnding = warnigMinBefEnding;
     }
 

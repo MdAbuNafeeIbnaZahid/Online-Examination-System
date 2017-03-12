@@ -190,9 +190,9 @@ public class ServerUI1Controller {
         exam.setStartHour( examStartHourInt );
         exam.setStartMin( examStartMinInt );
         exam.setDurationMin(  examDurationMinDob );
-        exam.setWarnigMinBefEnding( (int)warningBefEndMinuteDob );
+        exam.setWarnigMinBefEnding( warningBefEndMinuteDob );
         exam.setRules( ruleStr );
-        exam.setBackupIntervalMin( (int)backupIntervalMinDob );
+        exam.setBackupIntervalMin( backupIntervalMinDob );
         exam.setApplicationAllowed( applicationAllowed );
         exam.setAnsStoreLocation( ansStoreLocation );
         exam.setQuestionFile( questionFile );

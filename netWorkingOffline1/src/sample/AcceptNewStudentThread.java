@@ -107,7 +107,15 @@ public class AcceptNewStudentThread implements Runnable {
 
         }
 
-        networkUtil.write( loginInstructionToClient );
+        try {
+            networkUtil.write( loginInstructionToClient );
+        }
+        catch (Exception e)
+        {
+            System.out.println("Failed to write loginInstruction to client");
+            System.out.println(e);
+        }
+
 
         System.out.println("written loginInstructionToClient");
 
@@ -116,9 +124,18 @@ public class AcceptNewStudentThread implements Runnable {
         {
             //serverStarter.stdIdIpAddrssList.add( new StdIdIpAddrs(stdId, inetAddress) );
 
-            System.out.println( "added new student to serverStarter's studentList" );
-            networkUtil.write( serverStarter.getExamByName( examName ) );
-            System.out.println( "sent exam to client" );
+            //System.out.println( "added new student to serverStarter's studentList" );
+            try {
+                networkUtil.write( serverStarter.getExamByName( examName ) );
+                System.out.println( "sent exam to client" );
+            }
+            catch (Exception e)
+            {
+                System.out.println("Failed to send exam info to server");
+                System.out.println(e);
+            }
+
+
             if ( ( !serverStarter.wasStdPreviouslyLoggedIn( stdId ) ) )
             {
                 System.out.println( "student was not previously logged in" );
@@ -156,6 +173,14 @@ public class AcceptNewStudentThread implements Runnable {
 
                 student = new Student(stdId, networkUtil, exam, inetAddress, studentDestinationFolder, destinationFile, currentTimeCalendar);
                 serverStarter.studentList.add( student );
+            }
+            else // student previously Logged in
+            {
+                student = serverStarter.getStudentByStdId( stdId );
+                if ( student == null )
+                {
+                    System.out.println("Alas...  student is null");
+                }
             }
 
             try {

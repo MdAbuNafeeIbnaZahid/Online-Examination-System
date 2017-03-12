@@ -2,6 +2,7 @@ package sample;
 
 import util.NetworkUtil;
 
+import javax.jws.soap.SOAPBinding;
 import java.io.File;
 
 /**
@@ -43,14 +44,31 @@ public class Client {
     void sendStdIdToServer()
     {
         System.out.println( "from client " );
-        networkUtil.write( studentId );
+        try
+        {
+            networkUtil.write( studentId );
+        }
+        catch (Exception e)
+        {
+            System.out.println("Failed to send stdid to server");
+            System.out.println(e);
+        }
+
         System.out.println( "written studentId = " + studentId + "to server" );
     }
 
     void sendExamNameToServer()
     {
         System.out.println( "from client " );
-        networkUtil.write( examName );
+        try {
+            networkUtil.write( examName );
+        }
+        catch (Exception e)
+        {
+            System.out.println("Failed to send exam name to server");
+            System.out.println(e);
+        }
+
         System.out.println( "written examName = " + examName + "to server" );
     }
 }

@@ -26,6 +26,18 @@ public class ListenToServerThread implements Runnable {
 
             System.out.println( "In client received instructionFromServer = " + instructionFromServer );
 
+            if ( instructionFromServer.equals( "EXAM_END" ) )
+            {
+                try {
+                    client.networkUtil.fileSend( client.getQaFile().getAbsolutePath() );
+                    System.out.println( "Successfully sent last backup file from client" );
+                }
+                catch (Exception e)
+                {
+                    System.out.println("Failed to send last backup file from client");
+                }
+            }
+
             if ( instructionFromServer.equals( "SEND_ANS" ) )
             {
                 try {
@@ -38,6 +50,8 @@ public class ListenToServerThread implements Runnable {
                 }
 
             }
+
+
         }
     }
 }

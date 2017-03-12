@@ -17,6 +17,11 @@ public class NetworkUtil
         return socket.isConnected();
     }
 
+    public boolean isClosed()
+    {
+        return socket.isClosed();
+    }
+
     //By Nafee
     public InetAddress getInetAddress()
     {
@@ -30,7 +35,15 @@ public class NetworkUtil
         int size;
         fin = new FileInputStream(filePath);
         size=fin.available();
-        this.write(size);
+        try {
+            this.write(size);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Failed to write size of file");
+            System.out.println(e);
+        }
+
         int totalBlock=(size/1024)+1;
         byte [] b;
         for(int i=1;i<=totalBlock;i++)
@@ -47,7 +60,15 @@ public class NetworkUtil
             }
             fin.read(b);
             //outToServer.write(b);
-            this.write(b);
+
+            try {
+                this.write(b);
+            }
+            catch (Exception e)
+            {
+                System.out.println("Failed to write");
+                System.out.println(e);
+            }
         }
         fin.close();
     }
@@ -112,11 +133,12 @@ public class NetworkUtil
         return o;
     }
 
-    public void write(Object o) {
+    public void write(Object o) throws Exception {
         try {
             oos.writeObject(o);
         } catch (IOException e) {
             System.out.println("Writing  Error in network : " + e.toString());
+            throw e;
         }
     }
 
