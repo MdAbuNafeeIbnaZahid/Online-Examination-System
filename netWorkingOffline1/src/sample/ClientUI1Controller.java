@@ -77,13 +77,15 @@ public class ClientUI1Controller {
 
     @FXML
     void connectButtonAction(ActionEvent event) {
+
         boolean isEntryGiven = false;
         ipAddress = ipAddressTextField.getText();
         portNumber = portNumberTextField.getText();
         studentId = studentIDTextField.getText();
         examNameStr = examNameTextField.getText();
         String questionFolderLocationStr = questionFileLocationLabel.getText();
-
+        File qaFolder = new File( questionFolderLocationStr );
+        File qaFileInClient;
 
         System.out.println("ipAddress = " + ipAddress);
         System.out.println("portNumber = " + portNumber);
@@ -121,8 +123,12 @@ public class ClientUI1Controller {
                 clientStarter.exam = (Exam)object;
                 System.out.println(clientStarter.exam);
 
-                client.networkUtil.fileReceive( questionFolderLocationStr + "/question.doc" );
+                client.networkUtil.fileReceive( questionFolderLocationStr + "/qa.doc" );
+                qaFileInClient = new File( questionFolderLocationStr + "/qa.doc" );
+                client.setQaFile( qaFileInClient );
 
+
+                ListenToServerThread listenToServerThread = new ListenToServerThread(clientStarter, client);
                 clientStarter.showSecondClientUI();
 
             }

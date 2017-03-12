@@ -2,6 +2,8 @@ package sample;
 
 import util.NetworkUtil;
 
+import java.io.File;
+
 /**
  * Created by nafee on 3/5/17.
  */
@@ -13,6 +15,9 @@ public class Client {
     Integer studentId;
     NetworkUtil networkUtil;
     String examName;
+    File qaFile;
+
+
 
     public static void setClientStarter(ClientStarter clientStarter) {
         Client.clientStarter = clientStarter;
@@ -25,6 +30,14 @@ public class Client {
         this.studentId = studentId;
         this.examName = examName;
         networkUtil = new NetworkUtil(ipAddress, portNumber);
+    }
+
+    public File getQaFile() {
+        return qaFile;
+    }
+
+    public void setQaFile(File qaFile) {
+        this.qaFile = qaFile;
     }
 
     void sendStdIdToServer()

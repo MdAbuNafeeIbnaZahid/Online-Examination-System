@@ -19,7 +19,7 @@ public class SendInstructionToClientThread implements Runnable {
     public SendInstructionToClientThread(ServerStarter serverStarter, Student student) {
         this.serverStarter = serverStarter;
         this.student = student;
-        thread = new Thread();
+        thread = new Thread(this);
         thread.start();
     }
 
@@ -30,25 +30,44 @@ public class SendInstructionToClientThread implements Runnable {
         Calendar studentStartCalendar = student.getStartingTimeCalendar();
         Exam exam = student.getExam();
         double examDurationMilSec = exam.getDurationMin() * 60 * 1000;
+        System.out.println( "examDurationMilSec = " + examDurationMilSec );
         double examBackupIntervalMilSec = exam.getBackupIntervalMin() * 60 * 1000;
+        System.out.println( "examBackupIntervalMilSec = " + examBackupIntervalMilSec );
+
 
 
         while (true)
         {
             Calendar currentCalendar = Calendar.getInstance();
-            if ( diffInMilliSec( currentCalendar, studentStartCalendar ) > examDurationMilSec )
+
+
+            long MilliSecPassedAfterExamStart = diffInMilliSec( currentCalendar, studentStartCalendar );
+            System.out.println( "MilliSecPassedAfterExamStart = " + MilliSecPassedAfterExamStart );
+            if ( MilliSecPassedAfterExamStart > examDurationMilSec )
             {
                 student.networkUtil.write( "EXAM_END" );
+                System.out.println( " instructed server to end exam " );
                 //receive a last copy from student
                 // send ans to student
                 break;
             }
 
-            if ( diffInMilliSec(currentCalendar, lastBackupCalendar) > examBackupIntervalMilSec )
+            long MilliSecPassedAfterLastBackup = diffInMilliSec(currentCalendar, lastBackupCalendar);
+            System.out.println("MilliSecPassedAfterLastBackup = " + MilliSecPassedAfterLastBackup);
+            if ( MilliSecPassedAfterLastBackup > examBackupIntervalMilSec )
             {
                 student.networkUtil.write( "SEND_ANS" );
-            }
+                System.out.println("instructed server to send ans");
+                try {
+                    student.networkUtil.fileReceive( student.studentAnsStoreFile.getAbsolutePath() );
+                    lastBackupCalendar = Calendar.getInstance();
+                }
+                catch (Exception e)
+                {
+                    System.out.println( "In server failed to receive backup" );
+                }
 
+            }
         }
     }
 }
