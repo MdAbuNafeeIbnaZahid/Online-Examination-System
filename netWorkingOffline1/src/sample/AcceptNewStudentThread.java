@@ -1,4 +1,3 @@
-
 package sample;
 
 
@@ -173,9 +172,11 @@ public class AcceptNewStudentThread implements Runnable {
 
                 student = new Student(stdId, networkUtil, exam, inetAddress, studentDestinationFolder, destinationFile, currentTimeCalendar);
                 serverStarter.studentList.add( student );
+                System.out.println("serverStarter.studentList.size() = " + serverStarter.studentList.size());
             }
             else // student previously Logged in
             {
+                System.out.println("stdId = " + stdId);
                 student = serverStarter.getStudentByStdId( stdId );
                 if ( student == null )
                 {

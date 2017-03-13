@@ -32,10 +32,14 @@ public class ServerStarter extends Application {
 
     Student getStudentByStdId(Integer stdId)
     {
+        System.out.println("in getStudentByStdId  stdId = " + stdId);
+        System.out.println("size of studentList = " + studentList.size());
         Student ret = null;
+        System.out.println("Entering loop");
         for ( Student student : studentList )
         {
-            if ( student.getStdId() == stdId )
+            System.out.println("In loop student.stdId = " + student.getStdId() );
+            if ( student.getStdId().equals( stdId )  )
             {
                 ret = student;
             }
